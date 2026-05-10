@@ -1,3 +1,4 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:tugas_pbm/models/class_model.dart';
 import 'package:tugas_pbm/models/role_model.dart';
 
@@ -25,5 +26,16 @@ class UserModel {
       role: RoleModel.fromJson(json['role']),
       classData: ClassModel.fromJson(json['class']),
     );
+  }
+
+  void saveToken(String token) {
+    const storage = FlutterSecureStorage();
+    storage.write(key: 'AccessToken', value: token);
+  }
+
+  Future<String?> getToken() {
+    const storage = FlutterSecureStorage();
+    final token = storage.read(key: 'AccessToken');
+    return token;
   }
 }
