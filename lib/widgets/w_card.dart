@@ -33,7 +33,6 @@ class WCard extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // Container indigo sebelumnya di sini sudah dihapus
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
