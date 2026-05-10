@@ -1,17 +1,41 @@
-# tugas_pbm
+# 📱 Tugas Praktikum PBM - Flutter Application
 
-A new Flutter project.
+Dokumentasi ini menjelaskan struktur direktori dan pemetaan arsitektur yang diimplementasikan dalam proyek ini.
 
-## Getting Started
+## 📂 Struktur Folder (Project Directory Tree)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```text
+lib/
+├── config/              # Konfigurasi Pusat
+│   └── api_config.dart  # Endpoint & Base URL API
+├── DTO/                 # Data Transfer Objects (Request)
+│   ├── login_request.dart
+│   ├── create_product_request.dart
+│   └── submit_request.dart
+├── models/              # Data Models (Response)
+│   ├── user_model.dart
+│   ├── product_model.dart
+│   ├── class_model.dart
+│   └── role_model.dart
+├── providers/           # State Management (Logic)
+│   ├── auth_provider.dart
+│   ├── products_provider.dart
+│   └── submit_provider.dart
+├── screens/             # UI Halaman (Views)
+│   ├── login_screen.dart
+│   ├── dashboard_screen.dart
+│   ├── create_product_screen.dart
+│   └── submit_screen.dart
+├── services/            # API Integration (HTTP)
+│   ├── auth_service.dart
+│   ├── product_service.dart
+│   └── submit_service.dart
+├── utils/               # Helpers & Routing
+│   └── app_routes.dart  # Sentralisasi Navigasi
+└── widgets/             # Reusable UI Components
+    ├── w_button.dart    # Komponen Tombol
+    ├── w_card.dart      # Komponen Kartu Produk
+    ├── w_header.dart    # Komponen Header Halaman
+    ├── w_text_form_field.dart
+    ├── w_success_dialog.dart
+    └── w_failed_dialog.dart
