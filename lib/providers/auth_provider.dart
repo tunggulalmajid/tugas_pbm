@@ -16,6 +16,8 @@ class AuthProvider with ChangeNotifier {
   bool get isLoading => _isLoading;
 
   Future<bool> login(LoginRequest loginParams) async {
+    _isLoading = true;
+    notifyListeners();
     bool success = false;
     try {
       final response = await _service.login(loginParams);

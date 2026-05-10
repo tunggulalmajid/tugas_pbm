@@ -10,6 +10,7 @@ class WTextFormField extends StatefulWidget {
   final bool readOnly;
   final VoidCallback? onTap;
   final Widget? suffixIcon;
+  final int maxline;
 
   const WTextFormField({
     super.key,
@@ -21,6 +22,7 @@ class WTextFormField extends StatefulWidget {
     this.readOnly = false,
     this.onTap,
     this.suffixIcon,
+    this.maxline = 1,
   });
 
   @override
@@ -39,7 +41,7 @@ class _WTextFormFieldState extends State<WTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: TextFormField(
         controller: widget.controller,
         obscureText: widget.isPassword ? _obscureText : false,
@@ -47,6 +49,7 @@ class _WTextFormFieldState extends State<WTextFormField> {
         keyboardType: widget.keyboardType,
         readOnly: widget.readOnly,
         onTap: widget.onTap,
+        maxLines: widget.maxline,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         style: GoogleFonts.poppins(fontSize: 14),
 

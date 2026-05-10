@@ -13,18 +13,18 @@ class ProductModel {
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-      id: json['id'],
-      name: json['name'],
-      price: (json['price'] is int)
-          ? (json['price'] as int).toDouble()
-          : json['price'],
-      description: json['description'],
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
+      price: json['price'] == null
+          ? 0.0
+          : double.tryParse(json['price'].toString()) ?? 0.0,
+      description: json['description'] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() => {
     'name': name,
-    'price': price.toInt(),
+    'price': price,
     'description': description,
   };
 }

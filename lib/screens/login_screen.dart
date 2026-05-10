@@ -75,73 +75,88 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: Colors.indigo.shade800,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 100),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    // Tambahkan Flexible agar ukurannya terikat
-                    child: Text(
-                      "Login",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 35,
-                        letterSpacing: 5,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 30),
-              Form(
-                key: _formKey,
-                child: Column(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const SizedBox(height: 100),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    WTextFormField(
-                      hintText: "Username",
-                      controller: usernameController,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return "Username tidak boleh kosong";
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 15),
-                    WTextFormField(
-                      hintText: "Password",
-                      controller: passwordController,
-                      isPassword: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return "Password tidak boleh kosong";
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 30),
-                    WButton(
-                      text: "Login",
-                      textColor: Colors.indigo.shade800,
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          LoginRequest loginParams = LoginRequest(
-                            username: usernameController.text,
-                            password: passwordController.text,
-                          );
-                          handlerLogin(loginParams);
-                        }
-                      },
+                    Flexible(
+                      // Tambahkan Flexible agar ukurannya terikat
+                      child: Text(
+                        "Login",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 35,
+                          letterSpacing: 5,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ],
                 ),
-              ),
-            ],
+                const SizedBox(height: 30),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      WTextFormField(
+                        hintText: "Username",
+                        controller: usernameController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Username tidak boleh kosong";
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 15),
+                      WTextFormField(
+                        hintText: "Password",
+                        controller: passwordController,
+                        isPassword: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Password tidak boleh kosong";
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 30),
+                      Consumer<AuthProvider>(
+                        builder: (context, authProv, child) {
+                          if (authProv.isLoading) {
+                            return const Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.white,
+                              ),
+                            );
+                          }
+
+                          return WButton(
+                            text: "Login",
+                            textColor: Colors.indigo.shade800,
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                LoginRequest loginParams = LoginRequest(
+                                  username: usernameController.text,
+                                  password: passwordController.text,
+                                );
+                                handlerLogin(loginParams);
+                              }
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
