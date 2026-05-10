@@ -1,6 +1,16 @@
 # 📱 Tugas Praktikum PBM - Flutter Application
 
-Dokumentasi ini menjelaskan struktur direktori dan pemetaan arsitektur yang diimplementasikan dalam proyek ini.
+
+<p align="center">
+  <img src="./login_screen.png" alt="" width="350">
+  <img src="./login_screen_success.png" alt="" width="350">
+  <img src="./dashboard_screen.png" alt="" width="350">
+  <img src="./dashboard_screen_2.png" alt="" width="350">
+  <img src="./create_screen.png" alt="" width="350">
+  <img src="./create_success.png" alt="" width="350">
+  <img src="./submit_screen.png" alt="" width="350">
+  <img src="./submit_success.png" alt="" width="350">
+</p>
 
 ## 📂 Struktur Folder (Project Directory Tree)
 
@@ -39,3 +49,4 @@ lib/
     ├── w_text_form_field.dart
     ├── w_success_dialog.dart
     └── w_failed_dialog.dart
+
