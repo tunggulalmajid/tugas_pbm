@@ -7,8 +7,7 @@ class UserModel {
   final String name;
   final String username;
   final RoleModel role;
-  final ClassModel
-  classData; // Menggunakan classData agar tidak bentrok dengan keyword 'class'
+  final ClassModel classData;
 
   UserModel({
     required this.id,
@@ -33,7 +32,7 @@ class UserModel {
     storage.write(key: 'AccessToken', value: token);
   }
 
-  Future<String?> getToken() {
+  static Future<String?> getToken() {
     const storage = FlutterSecureStorage();
     final token = storage.read(key: 'AccessToken');
     return token;

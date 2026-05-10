@@ -10,6 +10,11 @@ class AuthProvider with ChangeNotifier {
   UserModel? _user;
   final Authservice _service = Authservice();
 
+  bool _isLoading = false;
+
+  UserModel? get user => _user;
+  bool get isLoading => _isLoading;
+
   Future<bool> login(LoginRequest loginParams) async {
     bool success = false;
     try {
@@ -27,6 +32,9 @@ class AuthProvider with ChangeNotifier {
     } catch (e) {
       log("error ini : $e");
       return false;
+    } finally {
+      _isLoading = false;
+      notifyListeners();
     }
   }
 }

@@ -82,14 +82,17 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Login",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 35,
-                      letterSpacing: 5,
-                      color: Colors.white,
+                  Flexible(
+                    // Tambahkan Flexible agar ukurannya terikat
+                    child: Text(
+                      "Login",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 35,
+                        letterSpacing: 5,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
@@ -99,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    WTextFormFieldForm(
+                    WTextFormField(
                       hintText: "Username",
                       controller: usernameController,
                       validator: (value) {
@@ -110,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                     ),
                     const SizedBox(height: 15),
-                    WTextFormFieldForm(
+                    WTextFormField(
                       hintText: "Password",
                       controller: passwordController,
                       isPassword: true,

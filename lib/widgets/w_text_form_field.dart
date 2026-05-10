@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class WTextFormFieldForm extends StatefulWidget {
+class WTextFormField extends StatefulWidget {
   final String hintText;
   final TextEditingController controller;
   final bool isPassword;
@@ -11,7 +11,7 @@ class WTextFormFieldForm extends StatefulWidget {
   final VoidCallback? onTap;
   final Widget? suffixIcon;
 
-  const WTextFormFieldForm({
+  const WTextFormField({
     super.key,
     required this.hintText,
     required this.controller,
@@ -24,10 +24,10 @@ class WTextFormFieldForm extends StatefulWidget {
   });
 
   @override
-  State<WTextFormFieldForm> createState() => _WTextFormFieldFormState();
+  State<WTextFormField> createState() => _WTextFormFieldState();
 }
 
-class _WTextFormFieldFormState extends State<WTextFormFieldForm> {
+class _WTextFormFieldState extends State<WTextFormField> {
   bool _obscureText = true;
 
   @override
