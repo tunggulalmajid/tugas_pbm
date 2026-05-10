@@ -5,7 +5,7 @@
   <img src="./login_screen.png" alt="" width="350">
   <img src="./login_screen_success.png" alt="" width="350">
   <img src="./dashboard_screen.png" alt="" width="350">
-  <img src="./dashboard_screen_2.png" alt="" width="350">
+  <img src="./dashboard_screen_bottom.png" alt="" width="350">
   <img src="./create_screen.png" alt="" width="350">
   <img src="./create_success.png" alt="" width="350">
   <img src="./submit_screen.png" alt="" width="350">
